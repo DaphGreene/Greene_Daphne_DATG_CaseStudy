@@ -12,8 +12,18 @@ body {
   font-style: normal;
 }
 
-footer {
-  position: relative;
+.index {
+  background: #000000;
+}
+
+hr {
+  border-top: 2px solid #ffffff;
+  opacity: 80%;
+}
+
+.carousel {
+  margin: 0;
+  padding: 0;
 }
 
 .show-dates {
@@ -39,12 +49,19 @@ footer {
   height: 100%;
 }
 
+.navbar-dark {
+  background-color: #000000;
+}
+
 .footer-dark {
   padding: 20px 0;
   color: #f0f9ff;
-  background-color: #282d32;
+  background-color: #000000;
   flex: 0 0 50px;
-  margin-top: auto;
+  width: 100%;
+  margin: auto;
+  flex-grow: 1;
+  flex-direction: column;
 }
 
 .footer-dark h3 {
@@ -52,7 +69,6 @@ footer {
   margin-bottom: 12px;
   font-weight: bold;
   font-size: 16px;
-  padding-top: 1000;
 }
 
 .footer-dark ul {
@@ -76,7 +92,7 @@ footer {
 @media (max-width: 767px) {
   .footer-dark .item:not(.social) {
     text-align: center;
-    padding-bottom: 20px;
+    padding-bottom: 0px;
   }
 }
 
@@ -132,10 +148,16 @@ footer {
   margin-bottom: 0;
 }
 
+#DATG-Logo {
+  max-width: 100px;
+}
+
 #showTable {
   padding-top: 20px;
 }
 
 #DATG-Pad {
   max-width: 100px;
+  min-width: 5vw;
+  padding-top: 30px;
 }
