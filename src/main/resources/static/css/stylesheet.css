@@ -12,6 +12,17 @@ body {
   font-style: normal;
 }
 
+.btn-primary {
+  background-color:#e94196 !important;
+  border-color: #e94196;
+  
+}
+
+.btn-primary:hover {
+  background-color: lightpink;
+  border-color: #e94196;
+}
+
 .index {
   background: #000000;
 }

@@ -27,7 +27,7 @@
     <link rel="icon" type="image/x-icon" href="../static/images/favicon.png" /> 
   </head>
 
-  <body class="index">
+  <body>
     <!-- Navbar -->
     <nav class="navbar sticky-top navbar-expand-sm navbar-dark">
       <div class="container-fluid">
@@ -60,84 +60,43 @@
             <li class="nav-item">
               <a class="nav-link" href="./contact.html">Contact</a>
             </li>
-            </ul>
-
-            <!-- Filler div between Nav items -->
-            <div class="d-sm-flex" />
-            <!-- Creates line between login/signup on dropdown -->
-            <hr class="d-sm-none">
-            
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="padding-right: 10px;">
-              <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  aria-current="page"
-                  href="./login.html"
-                  >Login</a
-                >
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" href="./signup.html">Signup</a>
-              </li>
-
-            <!-- <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-              Dropdown
-              </a>
-
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-
-                <li><hr class="dropdown-divider" /></li>
-
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
-              </ul>
-            </li>
           </ul>
 
+          <!-- Filler div between Nav items -->
+          <div class="d-sm-flex" />
+          <!-- Creates line between login/signup on dropdown -->
+          <hr class="d-sm-none">
+          
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="padding-right: 10px;">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="./login.html"
+                >Login</a
+              >
+            </li>
 
-
-          Search
-          <form class="d-flex" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-
-            <button class="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form> -->
+            <li class="nav-item">
+              <a class="nav-link" href="./signup.html">Signup</a>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
 
     <!-- Form wrapper container -->
     <div class="container py-4" style="max-width: 35%">
-      <form id="contactForm">
+      <form id="loginForm">
 
-        <!-- Email address input -->
+        <!-- Username input -->
         <div class="mb-3">
-          <label class="form-label" for="email">Email</label>
+          <label class="form-label" for="username">Username</label>
           <input
             class="form-control"
-            id="email"
-            type="email"
-            placeholder="Email"
+            id="username"
+            type="text"
+            placeholder="Username"
           />
         </div>
 
@@ -165,52 +124,52 @@
       </form>
     </div>
 
-  <!-- Footer -->
-  <div class="position-relative footer-dark">
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="item text text-center">
-            <h3>DATGlitches.com</h3>
-            <p>Your favorite AZ based 'bit-rock' band.</p>
+    <!-- Footer -->
+    <div class="position-relative footer-dark">
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="item text text-center">
+              <h3>DATGlitches.com</h3>
+              <p>Your favorite AZ based 'bit-rock' band.</p>
+            </div>
           </div>
-        </div>
-        
-        <div class="row">
-          <div class="col item social">
-            <a
-              href="https://www.facebook.com/daphneandtheglitches"
-              class="fa fa-facebook"
-              target="_blank"
-            ></a>
-            <a
-              href="https://twitter.com/DATGlitches"
-              class="fa fa-twitter"
-              target="_blank"
-            ></a>
-            <a
-              href="https://www.youtube.com/channel/UCLp53DH3S6nrfcTWm5Pk61w"
-              target="_blank"
-              ><i class="fa fa-youtube"></i
-            ></a>
-            <a href="https://www.instagram.com/datglitches/" target="_blank"
-              ><i class="fa fa-instagram" src="/images/"></i
-            ></a>
+          
+          <div class="row">
+            <div class="col item social">
+              <a
+                href="https://www.facebook.com/daphneandtheglitches"
+                class="fa fa-facebook"
+                target="_blank"
+              ></a>
+              <a
+                href="https://twitter.com/DATGlitches"
+                class="fa fa-twitter"
+                target="_blank"
+              ></a>
+              <a
+                href="https://www.youtube.com/channel/UCLp53DH3S6nrfcTWm5Pk61w"
+                target="_blank"
+                ><i class="fa fa-youtube"></i
+              ></a>
+              <a href="https://www.instagram.com/datglitches/" target="_blank"
+                ><i class="fa fa-instagram" src="/images/"></i
+              ></a>
+            </div>
           </div>
+          <div class="row justify-content-around">
+            <img class="col align-self-center" id="DATG-Pad" src="../static/images/DATG-Pad-Large-White.png">
+          </div>
+          <p class="copyright">DATGlitches.com &copy; 2022</p>
         </div>
-        <div class="row justify-content-around">
-          <img class="col align-self-center" id="DATG-Pad" src="../static/images/DATG-Pad-Large-White.png">
-        </div>
-        <p class="copyright">DATGlitches.com &copy; 2022</p>
-      </div>
+      </footer>
     </div>
-  </div>
-  </footer>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
       crossorigin="anonymous"
     ></script>
+
   </body>
 </html>
