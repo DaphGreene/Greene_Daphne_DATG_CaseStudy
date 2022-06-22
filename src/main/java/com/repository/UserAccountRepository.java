@@ -1,9 +1,9 @@
 package com.repository;
 
-import com.entity.UserInfo;
+import com.entity.User;
 
 public interface UserAccountRepository {
 
-    public UserInfo findByUsername(String username);
+    public User findByUsername(String username);
 
 }

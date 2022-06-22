@@ -87,7 +87,7 @@
 
     <!-- Form wrapper container -->
     <div class="container py-4" style="max-width: 35%">
-      <form id="loginForm">
+      <form id="loginForm" th:action="@{/login}" method="post">
 
         <!-- Username input -->
         <div class="mb-3">
@@ -116,7 +116,8 @@
           <button
             onClick="getName()"
             class="btn btn-primary btn-lg"
-            type="button"
+            type="submit"
+
           >
             Login
           </button>

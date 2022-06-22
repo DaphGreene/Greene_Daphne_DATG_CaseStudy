@@ -1,22 +1,18 @@
 package com.entity;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 import org.hibernate.validator.constraints.Length;
 
-import lombok.Data;
+import lombok.*;
 
-import java.util.Date;
-import java.util.List;
-
+import java.sql.Date;
+import java.util.Collection;
 @Entity
 @Data
 @Table(name="user")
-public class UserInfo {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,34 +40,28 @@ public class UserInfo {
 
     private boolean active = true;
 
-    @OneToMany(mappedBy = "user")
-    private List<UserToRole> userToRoles;
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = @JoinColumn(
+                    name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(
+                    name = "role_id", referencedColumnName = "id"))
+    private Collection<Role> roles;
 
-    public boolean isActive() {
-        return active;
+    public User() {
     }
 
-    public void setActive(boolean active) {
-        this.active = active;
-    }
-
-    public UserInfo() {
-    }
-
-    public UserInfo(Integer id, String email, String username, String password, String description, Date targetDate) {
+    public User(Integer id, String email, String username, String password, String description, Date targetDate, Collection<Role> roles
+    ) {
         this.id = id;
         this.email = email;
         this.username = username;
         this.password = password;
         this.description = description;
         this.targetDate = targetDate;
+        this.roles = roles;
     }
-
-    // public UserInfo(String username, String description, Date targetDate) {
-    //     this.username = username;
-    //     this.description = description;
-    //     this.targetDate = targetDate;
-    // }
 
     // Id
     public Integer getId() {
@@ -121,12 +111,13 @@ public class UserInfo {
         this.targetDate = targetDate;
     }
 
-    //UserToRoles
-    public List<UserToRole> getUserToRoles() {
-        return userToRoles;
-    }
-    public void setUserToRoles(List<UserToRole> UserToRoles) {
-        this.userToRoles = userToRoles;
+    // Roles
+    public Collection<Role> getRoles() {
+        return roles;
     }
 
+    public void setRoles(Collection<Role> roles) {
+        this.roles = roles;
+    }
+    
 }

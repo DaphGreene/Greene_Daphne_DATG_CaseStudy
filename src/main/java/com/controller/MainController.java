@@ -3,18 +3,23 @@ package com.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 @Controller
-public class AdminController {
+public class MainController {
 
-    @GetMapping("/admin")
-    public String admin() {
-        return "Hello Admin!";
+    @GetMapping("/")
+    public String root() {
+        return "index";
     }
 
     @GetMapping("/login")
     public String login(Model model) {
         return "login";
     }
+
+    @GetMapping("/user")
+    public String userIndex() {
+        return "user/index";
+    }
 }
+
