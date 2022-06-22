@@ -19,4 +19,21 @@ public class UserRole {
     private String roleName;
    @OneToMany(mappedBy = "role")
    private List<UserRoleToPrivilege> userRoleToPrivileges;
+
+   //Role
+   public String getRoleName() {
+    return roleName;
+    }
+    public void setRoleName(String roleName) {
+    this.roleName = roleName;
+    }
+
+    //UserRoleToPrivilege
+    public List<UserRoleToPrivilege> getUserRoleToPrivileges() {
+    return userRoleToPrivileges;
+    }
+    public void setUserRoleToPrivileges(List<UserRoleToPrivilege> userRoleToPrivileges) {
+        this.userRoleToPrivileges = userRoleToPrivileges;
+    }
+
 }

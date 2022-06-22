@@ -14,4 +14,7 @@ public class UserPrivilege {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String privilegeName;
+    public String getPrivilegeName() {
+        return null;
+    }
 }

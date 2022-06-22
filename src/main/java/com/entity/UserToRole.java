@@ -15,7 +15,17 @@ public class UserToRole {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @ManyToOne
-    private UserAccount user;
+    private UserInfo user;
     @ManyToOne
     private UserRole role;
+
+    //Role
+    public UserRole getRole() {
+        return role;
+    }
+    public void setRole(UserRole role) {
+        this.role = role;
+    }
+
 }
+

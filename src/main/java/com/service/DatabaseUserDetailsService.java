@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -13,6 +14,7 @@ import com.entity.UserInfo;
 import com.entity.UserRoleToPrivilege;
 import com.entity.UserToRole;
 import com.repository.UserAccountRepository;
+import com.security.CustomUserDetails;
 
 @Component
 public class DatabaseUserDetailsService implements UserDetailsService {

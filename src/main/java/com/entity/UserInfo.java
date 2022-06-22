@@ -8,9 +8,13 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Length;
 
+import lombok.Data;
+
 import java.util.Date;
+import java.util.List;
 
 @Entity
+@Data
 @Table(name="user")
 public class UserInfo {
 
@@ -23,6 +27,7 @@ public class UserInfo {
     private String email;
 
     @NotEmpty
+    @Column(unique = true)
     @Length(min = 2)
     @Length(max = 20)
     @Pattern(regexp="[^\\s]+", message = "User name can not include spaces")
@@ -38,6 +43,9 @@ public class UserInfo {
     private Date targetDate;
 
     private boolean active = true;
+
+    @OneToMany(mappedBy = "user")
+    private List<UserToRole> userToRoles;
 
     public boolean isActive() {
         return active;
@@ -65,7 +73,7 @@ public class UserInfo {
     //     this.targetDate = targetDate;
     // }
 
-    //Id
+    // Id
     public Integer getId() {
         return id;
     }
@@ -73,7 +81,7 @@ public class UserInfo {
         this.id = id;
     }
 
-    //Email
+    // Email
     public String getEmail() {
         return email;
     }
@@ -81,7 +89,7 @@ public class UserInfo {
         this.email = email;
     }
 
-    //Username
+    // Username
     public String getUsername() {
         return username;
     }
@@ -89,7 +97,7 @@ public class UserInfo {
         this.username = username;
     }
 
-    //Password
+    // Password
     public String getPassword() {
         return password;
     }
@@ -97,7 +105,7 @@ public class UserInfo {
         this.password = password;
     }
 
-    //Description
+    // Description
     public String getDescription() {
         return description;
     }
@@ -105,11 +113,20 @@ public class UserInfo {
         this.description = description;
     }
 
-    //TargetDate
+    // TargetDate
     public Date getTargetDate() {
         return targetDate;
     }
     public void setTargetDate(Date targetDate) {
         this.targetDate = targetDate;
     }
+
+    //UserToRoles
+    public List<UserToRole> getUserToRoles() {
+        return userToRoles;
+    }
+    public void setUserToRoles(List<UserToRole> UserToRoles) {
+        this.userToRoles = userToRoles;
+    }
+
 }

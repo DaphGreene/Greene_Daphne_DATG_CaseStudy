@@ -18,4 +18,7 @@ public class UserRoleToPrivilege {
     private UserRole role;
     @ManyToOne
     private UserPrivilege privilege;
+    public UserPrivilege getPrivilege() {
+        return privilege;
+    }
 }
