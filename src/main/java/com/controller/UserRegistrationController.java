@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.validation.Valid;
 
 @Controller
-// @RequestMapping("/registration")
+@RequestMapping("/registration")
 public class UserRegistrationController {
 
     @Autowired
