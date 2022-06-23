@@ -14,8 +14,8 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-    // We will create userService class in upcoming step
-//    @Lazy
+    
+    @Lazy
     @Autowired
     private UserService userService;
 
@@ -24,7 +24,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers(
-                        "/registration**",
+                        "/registration/**",
+                        "/login/**",
                         "/js/**",
                         "/css/**",
                         "/img/**",
@@ -33,6 +34,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginPage("/login")
+                .defaultSuccessUrl("/user")
                 .permitAll()
                 .and()
                 .logout()
