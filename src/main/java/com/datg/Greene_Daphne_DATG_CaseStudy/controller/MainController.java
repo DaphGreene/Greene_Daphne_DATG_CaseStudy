@@ -12,6 +12,21 @@ public class MainController {
         return "index";
     }
 
+    @GetMapping("/music")
+    public String music() {
+        return "music";
+    }
+
+    @GetMapping("/tour")
+    public String tour() {
+        return "tour";
+    }
+
+    @GetMapping("/contact")
+    public String contact() {
+        return "contact";
+    }
+
     @GetMapping("/login")
     public String login(Model model) {
         return "login";
