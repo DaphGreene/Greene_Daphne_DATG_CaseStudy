@@ -1,7 +1,8 @@
-package com.entity;
+package com.datg.Greene_Daphne_DATG_CaseStudy.entity;
 
-import com.repository.FieldMatch;
 import org.apache.commons.beanutils.BeanUtils;
+
+import com.datg.Greene_Daphne_DATG_CaseStudy.repository.FieldMatch;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

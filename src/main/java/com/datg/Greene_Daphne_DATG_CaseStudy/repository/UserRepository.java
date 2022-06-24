@@ -1,8 +1,9 @@
-package com.repository;
+package com.datg.Greene_Daphne_DATG_CaseStudy.repository;
 
-import com.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import com.datg.Greene_Daphne_DATG_CaseStudy.entity.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {

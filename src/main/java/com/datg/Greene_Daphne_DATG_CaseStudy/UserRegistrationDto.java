@@ -1,9 +1,10 @@
-package com;
+package com.datg.Greene_Daphne_DATG_CaseStudy;
 
 
-import com.repository.FieldMatch;
 //import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.*;
+
+import com.datg.Greene_Daphne_DATG_CaseStudy.repository.FieldMatch;
 
 //import javax.validation.constraints.Email;
 //import javax.validation.constraints.NotEmpty;

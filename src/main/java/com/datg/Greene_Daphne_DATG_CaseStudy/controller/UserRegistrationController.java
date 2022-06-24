@@ -1,8 +1,9 @@
-package com.controller;
+package com.datg.Greene_Daphne_DATG_CaseStudy.controller;
 
-import com.UserRegistrationDto;
-import com.entity.User;
-import com.service.UserService;
+import com.datg.Greene_Daphne_DATG_CaseStudy.UserRegistrationDto;
+import com.datg.Greene_Daphne_DATG_CaseStudy.entity.User;
+import com.datg.Greene_Daphne_DATG_CaseStudy.service.UserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

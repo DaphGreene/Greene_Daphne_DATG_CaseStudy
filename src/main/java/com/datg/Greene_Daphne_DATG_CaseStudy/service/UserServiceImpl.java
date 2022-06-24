@@ -1,9 +1,10 @@
-package com.service;
+package com.datg.Greene_Daphne_DATG_CaseStudy.service;
 
-import com.entity.Role;
-import com.entity.User;
-import com.UserRegistrationDto;
-import com.repository.UserRepository;
+import com.datg.Greene_Daphne_DATG_CaseStudy.UserRegistrationDto;
+import com.datg.Greene_Daphne_DATG_CaseStudy.entity.Role;
+import com.datg.Greene_Daphne_DATG_CaseStudy.entity.User;
+import com.datg.Greene_Daphne_DATG_CaseStudy.repository.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

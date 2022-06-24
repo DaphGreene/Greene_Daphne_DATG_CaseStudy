@@ -1,9 +1,9 @@
-package com.repository;
+package com.datg.Greene_Daphne_DATG_CaseStudy.repository;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-import com.entity.FieldMatchValidator;
+import com.datg.Greene_Daphne_DATG_CaseStudy.entity.FieldMatchValidator;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;

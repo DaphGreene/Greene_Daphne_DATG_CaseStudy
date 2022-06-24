@@ -1,4 +1,4 @@
-package com.controller;
+package com.datg.Greene_Daphne_DATG_CaseStudy.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,9 +17,9 @@ public class MainController {
         return "login";
     }
 
-    // @GetMapping("/user")
-    // public String userIndex() {
-    //     return "user/index";
-    // }
+    @GetMapping("/user")
+    public String userIndex() {
+        return "user/index";
+    }
 }
 

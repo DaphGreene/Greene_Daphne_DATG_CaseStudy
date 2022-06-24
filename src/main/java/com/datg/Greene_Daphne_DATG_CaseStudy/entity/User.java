@@ -1,4 +1,4 @@
-package com.entity;
+package com.datg.Greene_Daphne_DATG_CaseStudy.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
