@@ -59,63 +59,20 @@
             <li class="nav-item">
               <a class="nav-link" href="/contact">Contact</a>
             </li>
-            </ul>
-
-            <!-- Filler div between Nav items -->
-            <div class="d-sm-flex" />
-            <!-- Creates line between login/signup on dropdown -->
-            <hr class="d-sm-none">
-            
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="padding-right: 10px;">
-              <li class="nav-item">
-                <a class="nav-link" href="/login">Login</a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" href="/registration">Register</a>
-              </li>
-
-            <!-- <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-              Dropdown
-              </a>
-
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-
-                <li><hr class="dropdown-divider" /></li>
-
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
-              </ul>
-            </li> -->
           </ul>
 
-
-
-          <!-- Search
-          <form class="d-flex" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-
-            <button class="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form> -->
+          <!-- Filler div between Nav items -->
+          <div class="d-sm-flex" />
+          <!-- Creates line between login/signup on dropdown -->
+          <hr class="d-sm-none">
+          
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="padding-right: 10px;">
+            <li class="nav-item" sec:authorize="isAnonymous()"><a class="nav-link" href="/login">Login</a></li>
+            <li class="nav-item" sec:authorize="isAnonymous()"><a class="nav-link" href="/registration">Register</a></li>
+            <li class="nav-item" sec:authorize="isAuthenticated()"><a class="nav-link" href="/">Welcome!</a></li>
+            <li class="nav-item" sec:authorize="isAuthenticated()"><a class="nav-link" href="/logout">Logout</a></li>
+            <!-- <span sec:authentication="username"></span> -->
+          </ul>
         </div>
       </div>
     </nav>

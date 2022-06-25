@@ -15,30 +15,30 @@ import java.util.Collection;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Email(message = "Enter valid email address.")
-    @NotEmpty(message = "This field must not be left empty.")
+    // @Email(message = "Enter valid email address.")
+    // @NotEmpty(message = "This field must not be left empty.")
     private String email;
 
-    @NotEmpty
-    @Column(unique = true)
-    @Length(min = 2)
-    @Length(max = 20)
-    @Pattern(regexp="[^\\s]+", message = "User name can not include spaces")
+    // @NotEmpty
+    // @Column(unique = true)
+    // @Length(min = 2)
+    // @Length(max = 20)
+    // @Pattern(regexp="[^\\s]+", message = "User name can not include spaces")
     private String username;
 
-    @Pattern(regexp = "^((?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])){4,12}$")
-    @Length(min = 8, message = "Can't leave blank, must be minimum of 8 characters including one lowercase, one uppercase, one number, and one special character.")
+    // @Pattern(regexp = "^((?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])){4,12}$")
+    // @Length(min = 8, message = "Can't leave blank, must be minimum of 8 characters including one lowercase, one uppercase, one number, and one special character.")
     private String password;
 
-    @Size(max = 40, message = "Enter at least 40 characters please.")
-    private String description;
+    // @Size(max = 40, message = "Enter at least 40 characters please.")
+    // private String description;
 
-    private Date targetDate;
+    // private Date targetDate;
 
-    private boolean active = true;
+    // private boolean active = true;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
@@ -52,15 +52,23 @@ public class User {
     public User() {
     }
 
-    public User(Integer id, String email, String username, String password, String description, Date targetDate, Collection<Role> roles
+    public User(String email, String username, String password, Collection<Role> roles
     ) {
-        this.id = id;
         this.email = email;
         this.username = username;
         this.password = password;
-        this.description = description;
-        this.targetDate = targetDate;
+        // this.description = description;
+        // this.targetDate = targetDate;
         this.roles = roles;
+    }
+
+    public User(String email, String username, String password
+    ) {
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        // this.description = description;
+        // this.targetDate = targetDate;
     }
 
     // Id
@@ -96,20 +104,20 @@ public class User {
     }
 
     // Description
-    public String getDescription() {
-        return description;
-    }
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    // public String getDescription() {
+    //     return description;
+    // }
+    // public void setDescription(String description) {
+    //     this.description = description;
+    // }
 
     // TargetDate
-    public Date getTargetDate() {
-        return targetDate;
-    }
-    public void setTargetDate(Date targetDate) {
-        this.targetDate = targetDate;
-    }
+    // public Date getTargetDate() {
+    //     return targetDate;
+    // }
+    // public void setTargetDate(Date targetDate) {
+    //     this.targetDate = targetDate;
+    // }
 
     // Roles
     public Collection<Role> getRoles() {
@@ -119,5 +127,17 @@ public class User {
     public void setRoles(Collection<Role> roles) {
         this.roles = roles;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username+ '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + "*********" + '\'' +
+                ", roles=" + roles +
+                '}';
+    }
+
     
 }

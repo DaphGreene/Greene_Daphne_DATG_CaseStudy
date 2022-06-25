@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.validation.Valid;
 
 @Controller
-// @RequestMapping("/registration")
+@RequestMapping("/registration")
 public class UserRegistrationController {
 
     @Autowired
@@ -27,12 +27,12 @@ public class UserRegistrationController {
         return new UserRegistrationDto();
     }
 
-    @GetMapping("/registration")
+    @GetMapping
     public String showRegistrationForm(Model model) {
         return "registration";
     }
 
-    @PostMapping("/registration")
+    @PostMapping
     public String registerUserAccount(@ModelAttribute("user") @Valid UserRegistrationDto userDto, BindingResult result){
 
         User existing = userService.findByEmail(userDto.getEmail());
