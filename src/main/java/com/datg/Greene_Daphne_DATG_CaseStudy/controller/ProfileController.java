@@ -13,7 +13,7 @@ public class ProfileController {
     @RequestMapping(value="/profile")
     public String profile(Model model, Principal principal) {
 
-        String username = principal.getUsername();
+        String username = principal.getName();
 
         model.addAttribute(attributeName, attributeValue)
 
