@@ -30,6 +30,10 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByEmail(email);
     }
 
+    public User findByUsername(String username){
+        return userRepository.findByUsername(username);
+    }
+
     public User save(UserRegistrationDto registration){
         User user = new User();
         user.setUsername(registration.getUsername());

@@ -23,11 +23,11 @@ public class UserRegistrationDto {
     // @NotNull
     // private String confirmPassword;
 
-//    @Email
+    @Email
     @NotNull
     private String email;
 
-//    @Email
+    // @Email
     // @NotNull
     // private String confirmEmail;
 

@@ -32,6 +32,11 @@ public class MainController {
         return "login";
     }
 
+    @GetMapping("/profile")
+    public String profile() {
+        return "profile";
+    }
+
     @GetMapping("/user")
     public String userIndex() {
         return "user/index";

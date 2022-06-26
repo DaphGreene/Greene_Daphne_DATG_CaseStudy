@@ -33,8 +33,8 @@ public class User {
     // @Length(min = 8, message = "Can't leave blank, must be minimum of 8 characters including one lowercase, one uppercase, one number, and one special character.")
     private String password;
 
-    // @Size(max = 40, message = "Enter at least 40 characters please.")
-    // private String description;
+    // @Size(max = 40, message = "Your description may be up to 40 characters.")
+    private String description = new String();
 
     // private Date targetDate;
 
@@ -52,22 +52,22 @@ public class User {
     public User() {
     }
 
-    public User(String email, String username, String password, Collection<Role> roles
+    public User(String email, String username, String password, String description, Collection<Role> roles
     ) {
         this.email = email;
         this.username = username;
         this.password = password;
-        // this.description = description;
+        this.description = description;
         // this.targetDate = targetDate;
         this.roles = roles;
     }
 
-    public User(String email, String username, String password
+    public User(String email, String username, String password, String description
     ) {
         this.email = email;
         this.username = username;
         this.password = password;
-        // this.description = description;
+        this.description = description;
         // this.targetDate = targetDate;
     }
 
@@ -104,14 +104,14 @@ public class User {
     }
 
     // Description
-    // public String getDescription() {
-    //     return description;
-    // }
-    // public void setDescription(String description) {
-    //     this.description = description;
-    // }
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-    // TargetDate
+    // // TargetDate
     // public Date getTargetDate() {
     //     return targetDate;
     // }
