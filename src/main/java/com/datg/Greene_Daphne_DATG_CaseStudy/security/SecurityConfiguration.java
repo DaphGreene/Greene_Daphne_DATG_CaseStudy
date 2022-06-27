@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import com.datg.Greene_Daphne_DATG_CaseStudy.service.UserService;
@@ -34,6 +35,19 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/",
                         "/music",
                         "/tour",
+                        "/tour_dates.json",
+                        "/contact").permitAll()
+                .antMatchers(
+                        "/registration/**",
+                        "/login/**",
+                        "/js/**",
+                        "/css/**",
+                        "/images/**",
+                        "/webjars/**",
+                        "/",
+                        "/music",
+                        "/tour",
+                        "/tour_dates.json",
                         "/contact").permitAll()
                 .anyRequest().authenticated()
                 .and()
@@ -47,7 +61,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .clearAuthentication(true)
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/login?logout")
-                .permitAll();
+                .permitAll()
+                .and()
+                .csrf()
+                .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());;
     }
 
     @Bean

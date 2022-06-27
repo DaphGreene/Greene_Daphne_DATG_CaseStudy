@@ -1,7 +1,7 @@
 package com.datg.Greene_Daphne_DATG_CaseStudy.service;
 
 
-import com.datg.Greene_Daphne_DATG_CaseStudy.UserRegistrationDto;
+import com.datg.Greene_Daphne_DATG_CaseStudy.dto.UserRegistrationDto;
 import com.datg.Greene_Daphne_DATG_CaseStudy.entity.User;
 
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -18,22 +18,24 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    // @Email(message = "Enter valid email address.")
-    // @NotEmpty(message = "This field must not be left empty.")
+    @Email(message = "Enter valid email address.")
+    @Column(unique = true)
+    @NotEmpty(message = "Email address is required.")
     private String email;
 
-    // @NotEmpty
-    // @Column(unique = true)
-    // @Length(min = 2)
-    // @Length(max = 20)
+     @NotEmpty(message = "Username is required.")
+     @Column(unique = true)
+     @Length(min = 2)
+     @Length(max = 20)
     // @Pattern(regexp="[^\\s]+", message = "User name can not include spaces")
     private String username;
 
-    // @Pattern(regexp = "^((?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])){4,12}$")
-    // @Length(min = 8, message = "Can't leave blank, must be minimum of 8 characters including one lowercase, one uppercase, one number, and one special character.")
+    @NotEmpty(message = "Password is required.")
+//    @Pattern(regexp = "^((?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])){4,12}$", message = "Must include one lowercase, one uppercase, one number, and one special character.")
+    @Length(min = 8, message = "Must be minimum of 8 characters")
     private String password;
 
-    // @Size(max = 40, message = "Your description may be up to 40 characters.")
+    @Size(max = 40, message = "Your description may be up to 40 characters.")
     private String description = new String();
 
     // private Date targetDate;

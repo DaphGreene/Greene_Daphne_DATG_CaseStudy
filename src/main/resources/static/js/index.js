@@ -1,58 +1,42 @@
-const show = [
-  {
-    city: "Phoenix",
-    venue: "The Rebel Lounge",
-    date: "06/17",
-    preorder: 15,
-    door: 20,
-    link: "https://tickets.com",
-  },
-  {
-    city: "Los Angeles",
-    venue: "The Troubador",
-    date: "07/20",
-    preorder: 15,
-    door: 20,
-    link: "https://tickets.com",
-  },
-  {
-    city: "San Diego",
-    venue: "Casbah",
-    date: "08/10",
-    preorder: 15,
-    door: 20,
-    link: "https://tickets.com",
-  },
-  {
-    city: "Portland",
-    venue: "TBD",
-    date: "09/18",
-    preorder: 15,
-    door: 20,
-    link: "https://tickets.com",
-  },
-];
+//$('showsTable').on('click', 'input[type="button"]', function(e){
+//   $(this).closest('tr').remove()
+//})
 
-// Shows-Table generator
+const tourDatesAPI = "/tour_dates.json";
 const showsTable = document.getElementById("tableBody");
-console.log(showsTable);
-// Iterating over the shows Set
-show.forEach((show) => {
-  const newRow = document.createElement("tr");
-  const newFormat = document.createElement("td");
-  newFormat.innerHTML = ">";
-  newRow.appendChild(newFormat);
-  const newCity = document.createElement("td");
-  newCity.innerHTML = show.city;
-  newRow.appendChild(newCity);
-  const newVenue = document.createElement("td");
-  newVenue.innerHTML = show.venue;
-  newRow.appendChild(newVenue);
-  const newDate = document.createElement("td");
-  newDate.innerHTML = show.date;
-  newRow.appendChild(newDate);
-  const newTickets = document.createElement("td");
-  newTickets.innerHTML = `<a href=${show.link}>$${show.preorder}/$${show.door} DOS</a>`;
-  newRow.appendChild(newTickets);
-  showsTable.appendChild(newRow);
-});
+const csrfToken = document.cookie.replace(/(?:(?:^|.*;\s*)XSRF-TOKEN\s*\=\s*([^;]*).*$)|^.*$/, '$1');
+
+function deleteTourDate(id) {
+  console.log("YEA");
+  fetch(`/tour_date/${id}`, { method: 'DELETE', redirect: "manual", headers: { 'X-XSRF-TOKEN': csrfToken }})
+  .then( function () {
+    location.reload();
+  });
+}
+
+fetch(tourDatesAPI)
+.then( response => response.json() )
+.then( data => data.forEach( function( show ) {
+   const newRow = document.createElement("tr");
+   const newFormat = document.createElement("td");
+   newFormat.innerHTML = ">";
+   newRow.appendChild(newFormat);
+   const newCity = document.createElement("td");
+   newCity.innerHTML = show.city;
+   newRow.appendChild(newCity);
+   const newVenue = document.createElement("td");
+   newVenue.innerHTML = show.venue;
+   newRow.appendChild(newVenue);
+   const newDate = document.createElement("td");
+   newDate.innerHTML = show.date;
+   newRow.appendChild(newDate);
+   const newTickets = document.createElement("td");
+   newTickets.innerHTML = `<a href=${show.link}>$${show.preorder}/$${show.door} DOS</a>`;
+   newRow.appendChild(newTickets);
+   if( document.getElementById('tourActions') ){
+       const actions = document.createElement("td");
+       actions.innerHTML = `<a href="/tour_date/${show.id}">Edit</a><a href="#" onclick="deleteTourDate(${show.id});">Delete</a>`;
+       newRow.appendChild(actions);
+   }
+   showsTable.appendChild(newRow);
+}));

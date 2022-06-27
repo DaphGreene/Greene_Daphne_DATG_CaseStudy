@@ -17,11 +17,6 @@ public class MainController {
         return "music";
     }
 
-    @GetMapping("/tour")
-    public String tour() {
-        return "tour";
-    }
-
     @GetMapping("/contact")
     public String contact() {
         return "contact";
@@ -30,11 +25,6 @@ public class MainController {
     @GetMapping("/login")
     public String login() {
         return "login";
-    }
-
-    @GetMapping("/profile")
-    public String profile() {
-        return "profile";
     }
 
     @GetMapping("/user")

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -83,51 +83,56 @@
     </nav>
 
     <!-- Form wrapper container -->
-    <div class="container py-4" style="max-width: 60%">
-      <form id="contactForm">
-        <!-- Name input -->
+    <div class="container py-4" style="max-width: 35%">
+      <form id="profileForm" th:action="@{/profile}" th:object="${user}" method="post">
+
+        <!-- Password input -->
         <div class="mb-3">
-          <label class="form-label" for="name">Name</label>
+          <label class="form-label" for="password">Password</label>
           <input
-            class="form-control"
-            id="name"
-            type="text"
-            placeholder="Name"
+                  class="form-control"
+                  id="password"
+                  type="password"
+                  placeholder="Enter password"
+                  th:field="*{password}"
           />
+          <ul>
+            <li th:each="err : ${#fields.errors('password')}" th:text="${err}" class="error" />
+          </ul>
         </div>
 
-        <!-- Email address input -->
+        <!-- Password input -->
         <div class="mb-3">
-          <label class="form-label" for="emailAddress">Email Address</label>
-          <input
-            class="form-control"
-            id="emailAddress"
-            type="email"
-            placeholder="Email Address"
-          />
-        </div>
-
-        <!-- Message input -->
-        <div class="mb-3">
-          <label class="form-label" for="message">Message</label>
+          <label class="form-label" for="description">Description</label>
           <textarea
-            class="form-control"
-            id="message"
-            type="text"
-            placeholder="Message"
-            style="height: 10rem"
-          ></textarea>
+                  class="form-control"
+                  id="description"
+                  th:field="*{description}"
+          />
+          <ul>
+            <li th:each="err : ${#fields.errors('description')}" th:text="${err}" class="error" />
+          </ul>
         </div>
 
         <!-- Form submit button -->
         <div class="d-grid">
           <button
-            onClick="getName()"
-            class="btn btn-primary btn-lg"
-            type="button"
+                  class="btn btn-primary btn-lg"
+                  type="submit"
           >
-            Submit
+            Update
           </button>
+
+          <!-- <div class="form-group"
+                th:classappend="${#fields.hasErrors('firstName')}? 'has-error':''">
+              <label for="firstName" class="control-label">First name</label> <input
+                  id="firstName" class="form-control" th:field="*{firstName}" type="text" />
+              <p class="error-message"
+                  th:each="error: ${#fields.errors('firstName')}"
+                  th:text="${error}">Validation error</p>
+          </div> -->
+
+
         </div>
       </form>
     </div>
